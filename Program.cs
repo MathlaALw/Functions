@@ -88,7 +88,12 @@
                         string result6 = SwapTwoNumbers(number1,number2);
                         printValue(result6);
                         break;
-                    case 7: DaysToWeeksAndDaysConverter(); break;
+                    case 7:
+                        Console.WriteLine("Enter number of days : ");
+                        int days = int.Parse(Console.ReadLine()); 
+                        string result7 = DaysToWeeksAndDaysConverter(days);
+                        printValue(result7);
+                        break;
                     case 8: ElectricityBillCalculator(); break;
                     case 9: SimpleCalculatorpart1(); break;
                     case 10: SimpleCalculator(); break;
@@ -240,17 +245,14 @@
             return result;
             
         }
-        public static void DaysToWeeksAndDaysConverter()
+        public static string DaysToWeeksAndDaysConverter(int days)
         {
             //7.Days to Weeks and Days Converter
 
-            int days, weeks, remainingDays;
-            Console.WriteLine("Enter number of days : ");
-            days = int.Parse(Console.ReadLine());
-            weeks = days / 7;
-            remainingDays = days % 7;
-            Console.WriteLine("The number of days is " + days + "\nThe number of Week is : " + weeks + "\nThe Remainning Days is :" + remainingDays);
-
+            int weeks = days / 7;
+            int remainingDays = days % 7;
+            string result = weeks + " weeks and " + remainingDays + " days";
+            return result;
 
         }
 
