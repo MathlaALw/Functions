@@ -52,7 +52,16 @@
                         string result = EvenOrOdd(num);
                         printValue(result);
                         break;
-                    case 2: LargestOfThreeNumbers(); break;
+                    case 2:
+                        Console.WriteLine("Enter number 1 : ");
+                        int num1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter number 2 : ");
+                        int num2 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter number 3 : ");
+                        int num3 = int.Parse(Console.ReadLine());
+                        int result2 = LargestOfThreeNumbers(num1, num2, num3);
+                        printValue(result2.ToString());
+                        break;
                     case 3: TemperatureConverter(); break;
                     case 4: SimpleDiscountCalculator(); break;
                     case 5: GradingSystem(); break;
@@ -106,17 +115,12 @@
             
         }
         // part 1
-        public static void LargestOfThreeNumbers()
+        public static int LargestOfThreeNumbers(int num1, int num2, int num3)
         {
             //2. Largest of Three Numbers
 
-            int num1, num2, num3, larg;
-            Console.WriteLine("Enter number 1 : ");
-            num1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter number 2 : ");
-            num2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter number 3 : ");
-            num3 = int.Parse(Console.ReadLine());
+            int larg;
+
             if (num1 > num2 && num1 > num3)
             {
                 larg = num1;
@@ -129,7 +133,7 @@
             {
                 larg = num3;
             }
-            Console.WriteLine("The Largest number is " + larg);
+            return larg;
 
         }
 
