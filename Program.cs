@@ -62,7 +62,12 @@
                         int result2 = LargestOfThreeNumbers(num1, num2, num3);
                         printValue(result2.ToString());
                         break;
-                    case 3: TemperatureConverter(); break;
+                    case 3:
+                        Console.WriteLine("Enter temperature : ");
+                        double temp = double.Parse(Console.ReadLine());
+                        double result3 = TemperatureConverter(temp, 0);
+                        printValue(result3.ToString());
+                        break;
                     case 4: SimpleDiscountCalculator(); break;
                     case 5: GradingSystem(); break;
                     case 6: SwapTwoNumbers(); break;
@@ -137,16 +142,14 @@
 
         }
 
-        public static void TemperatureConverter()
+        public static double TemperatureConverter(double temp, double fahrenheit)
         {
             //3. Temperature Converter
-            double temp, fahrenheit;
-            Console.WriteLine("Enter temperature : ");
-            temp = double.Parse(Console.ReadLine());
+
 
             fahrenheit = (temp * 9 / 5) + 32;
+            return fahrenheit;
 
-            Console.WriteLine("Temperature in Fahrenheit is : " + fahrenheit);
 
         }
         public static void SimpleDiscountCalculator()
