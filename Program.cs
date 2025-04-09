@@ -133,8 +133,16 @@ namespace Functions
                         printValue(result12.ToString());
 
                         break;
-                    case 13:  break;
-                    case 14: SumEvenOdd(); break;
+                    case 13:
+
+                        Console.WriteLine("Enter a number : ");
+                        int userNumber = int.Parse(Console.ReadLine());
+                        string result13 = SumEvenOdd(userNumber);
+                        printValue(result13.ToString());
+
+
+                        break;
+                    case 14: break;
                     case 15: ScientificCalculator(); break;
                     case 16: PrintTriangle(); break;
                     case 17: PrintPyramid(); break;
@@ -515,26 +523,26 @@ namespace Functions
 
 
         //5. Sum of Even and Odd Numbers 
-        public static void SumEvenOdd()
+        public static string SumEvenOdd(int userNumber)
         {
             int sumeven = 0;
             int sumodd = 0;
-            int userNumber;
-            Console.WriteLine("Enter a number : ");
-            userNumber = int.Parse(Console.ReadLine());
+            
             for (int i = 1; i <= userNumber; i++)
             {
                 if (i % 2 == 0)
                 {
                     sumeven = sumeven + i;
+                    
                 }
                 else
                 {
                     sumodd = sumodd + i;
+                    
                 }
             }
-            Console.WriteLine("Sum of Even Numbers : " + sumeven);
-            Console.WriteLine("Sum of Odd Numbers : " + sumodd);
+            return "Sum of Even Numbers : " + sumeven + "\n" + "Sum of Odd Numbers : " + sumodd;
+
         }
         // Console.WriteLine(" -------------------------------------------------------");
 
