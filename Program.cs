@@ -68,8 +68,18 @@
                         double result3 = TemperatureConverter(temp, 0);
                         printValue(result3.ToString());
                         break;
-                    case 4: SimpleDiscountCalculator(); break;
-                    case 5: GradingSystem(); break;
+                    case 4:
+                        Console.WriteLine("Enter price : ");
+                        double price = double.Parse(Console.ReadLine());
+                        double result4 = SimpleDiscountCalculator(price);
+                        printValue(result4.ToString());
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter a student score : ");
+                        int marks = int.Parse(Console.ReadLine());
+                        int result5 = GradingSystem(marks);
+                        printValue(result5.ToString());
+                        break;
                     case 6: SwapTwoNumbers(); break;
                     case 7: DaysToWeeksAndDaysConverter(); break;
                     case 8: ElectricityBillCalculator(); break;
@@ -152,35 +162,34 @@
 
 
         }
-        public static void SimpleDiscountCalculator()
+        public static double SimpleDiscountCalculator(double price)
         {
             //4. Simple Discount Calculator
 
-            double price, discount, finalPrice;
-            Console.WriteLine("Enter price : ");
-            price = double.Parse(Console.ReadLine());
+            double discount, finalPrice;
+
 
             if (price > 100)
             {
                 discount = (price * 10) / 100;
                 finalPrice = price - discount;
-                Console.WriteLine("The final price is  " + finalPrice);
+                //Console.WriteLine("The final price is  " + finalPrice);
+                return finalPrice;
             }
             else
             {
 
                 finalPrice = price;
-                Console.WriteLine(" No Discount Your final price is  " + finalPrice);
+                //Console.WriteLine(" No Discount Your final price is  " + finalPrice);
             }
+            return finalPrice;
         }
-        public static void GradingSystem()
+        public static int GradingSystem(int marks)
         {
             //5. Grading System
 
 
-            int marks;
-            Console.WriteLine("Enter a student score : ");
-            marks = int.Parse(Console.ReadLine());
+           
             char grade;
 
             if (marks >= 90)
@@ -203,7 +212,7 @@
             {
                 grade = 'F';
             }
-            Console.WriteLine(" Your grade is  " + grade);
+            return grade;
         }
         public static void SwapTwoNumbers()
         {
