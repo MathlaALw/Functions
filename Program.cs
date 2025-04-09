@@ -47,7 +47,6 @@
                 switch (choice)
                 {
                     case 1:
-                        
                         Console.WriteLine("Enter number : ");
                         int num = int.Parse(Console.ReadLine());
                         string result = EvenOrOdd(num);
