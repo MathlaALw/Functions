@@ -1,4 +1,6 @@
-﻿namespace Functions
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Functions
 {
     internal class Program
     {
@@ -17,25 +19,24 @@
                 Console.WriteLine("7. Days to Weeks and Days Converter");
                 Console.WriteLine("8. Electricity Bill Calculator");
                 Console.WriteLine("9. Simple Calculator Part 1");
-                Console.WriteLine("10. Simple Calculator");
-                Console.WriteLine("11. Basic ATM System");
-                Console.WriteLine("12. Geometry Calculator");
-                Console.WriteLine("13. Factorial of a Number");
-                Console.WriteLine("14. Sum of Even and Odd Numbers");
-                Console.WriteLine("15. Scientific Calculator");
-                Console.WriteLine("16. Print Triangle Pattern");
-                Console.WriteLine("17. Print Pyramid Pattern");
-                Console.WriteLine("18. Print Diamond Pattern");
-                Console.WriteLine("19. Guess the Number Game");
-                Console.WriteLine("20. Array Initialization");
-                Console.WriteLine("21. Find Maximum & Minimum in an Array");
-                Console.WriteLine("22. Count Even & Odd Numbers");
-                Console.WriteLine("23. Reverse an Array");
-                Console.WriteLine("24. Search for a Number in an Array");
-                Console.WriteLine("25. Sorting an Array (Ascending Order)");
-                Console.WriteLine("26. Merging Two Arrays");
-                Console.WriteLine("27. Remove Duplicates from an Array");
-                Console.WriteLine("28. Second Largest Number in an Array");
+                Console.WriteLine("10. Basic ATM System");
+                Console.WriteLine("11. Geometry Calculator");
+                Console.WriteLine("12. Factorial of a Number");
+                Console.WriteLine("13. Sum of Even and Odd Numbers");
+                Console.WriteLine("14. Scientific Calculator");
+                Console.WriteLine("15. Print Triangle Pattern");
+                Console.WriteLine("16. Print Pyramid Pattern");
+                Console.WriteLine("17. Print Diamond Pattern");
+                Console.WriteLine("18. Guess the Number Game");
+                Console.WriteLine("19. Array Initialization");
+                Console.WriteLine("20. Find Maximum & Minimum in an Array");
+                Console.WriteLine("21. Count Even & Odd Numbers");
+                Console.WriteLine("22. Reverse an Array");
+                Console.WriteLine("23. Search for a Number in an Array");
+                Console.WriteLine("24. Sorting an Array (Ascending Order)");
+                Console.WriteLine("25. Merging Two Arrays");
+                Console.WriteLine("26. Remove Duplicates from an Array");
+                Console.WriteLine("27. Second Largest Number in an Array");
 
 
                 Console.WriteLine("0. Exit");
@@ -100,9 +101,27 @@
                         float result8 = ElectricityBillCalculator(unitNumber);
                         printValue(result8.ToString());
                         break;
-                    case 9: SimpleCalculatorpart1(); break;
-                    case 10: SimpleCalculator(); break;
-                    case 11: BasicATM(); break;
+                    case 9:
+                        Console.WriteLine("Enter number 1 : ");
+                        double numb1 = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter number 2 : ");
+                        double numb2= double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter Operator  (+, -, *, /) : ");
+                        char Operator = char.Parse(Console.ReadLine());
+                        string result9 = SimpleCalculatorpart1(numb1, numb2, Operator);
+                        printValue(result9);
+                        break;
+                    case 10:
+                        Console.WriteLine("Chose what process you want \n1. withdraw  \n2. deposit  \n3. chechBalance  \n4. Exit ");
+                        int choice1 = int.Parse(Console.ReadLine());
+                        string result10 = BasicATM(choice1);
+                        printValue(result10);
+                        break;
+                    case 11:
+                       
+                        break;
+
+
                     case 12: GeometryCalculator(); break;
                     case 13: Factorial(); break;
                     case 14: SumEvenOdd(); break;
@@ -285,52 +304,47 @@
             }
         }
 
-        public static void SimpleCalculatorpart1()
+        public static string SimpleCalculatorpart1(double numb1, double numb2 , char Operator)
         {
             //9. Simple Calculator
 
-            double numb1, numb2, result;
-            char Operator;
-            Console.WriteLine("Enter number 1 : ");
-            numb1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter number 2 : ");
-            numb2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter Operator  (+, -, *, /) : ");
-            Operator = char.Parse(Console.ReadLine());
+            double result;
+            
+            
 
 
             if (Operator == '+')
             {
                 result = numb1 + numb2;
-                Console.WriteLine("The result of addition is : " + result);
+                 return "The result of addition is : " + result;
             }
             else if (Operator == '-')
             {
                 result = numb1 - numb2;
-                Console.WriteLine("The result subtraction is : " + result);
+                return "The result subtraction is : " + result;
             }
             else if (Operator == '*')
             {
                 result = numb1 * numb2;
-                Console.WriteLine("The result multiplication is : " + result);
+                return "The result multiplication is : " + result;
             }
             else if (Operator == '/')
             {
                 if (numb2 == 0)
                 {
-                    Console.WriteLine("Cannot divide by zero");
-                    return;
+                    
+                    return "Cannot divide by zero";
                 }
                 else
                 {
                     result = numb1 / numb2;
-                    Console.WriteLine("The result division is : " + result);
+                    return "The result division is : " + result;
                 }
 
             }
             else
             {
-                Console.WriteLine("Invalid Operator");
+                return "Invalid Operator";
             }
         }
 
@@ -343,60 +357,8 @@
 
 
         // part 2
-        static void SimpleCalculator()
-        {
-
-            Console.Clear();
-            int num_1, num_2, result1;
-            char Operator1;
-            Console.WriteLine("Enter number 1 : ");
-            num_1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter number 2 : ");
-            num_2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter Operator  (+, -, *, /) : ");
-            Operator1 = char.Parse(Console.ReadLine());
-
-
-            switch (Operator1)
-            {
-                case '+':
-                    result1 = num_1 + num_2;
-                    Console.WriteLine("The result of addition is : " + result1);
-                    break;
-                case '-':
-                    result1 = num_1 - num_2;
-                    Console.WriteLine("The result subtraction is : " + result1);
-                    break;
-                case '*':
-                    result1 = num_1 * num_2;
-                    Console.WriteLine("The result multiplication is : " + result1);
-                    break;
-                case '/':
-                    if (num_2 == 0)
-                    {
-                        Console.WriteLine("Cannot divide by zero");
-                        return;
-                    }
-                    else
-                    {
-                        result1 = num_1 / num_2;
-                        Console.WriteLine("The result division is : " + result1);
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Invalid Operator");
-                    break;
-            }
-
-        }
-        //Console.WriteLine(" -------------------------------------------------------");
-
-        //---------------------------------------------------------------------------
-
-
-        //2.Basic ATM System
-
-        static void BasicATM()
+       
+        public static string BasicATM(int choice1)
         {
             char doAgain;
             do
@@ -404,15 +366,14 @@
                 //Console.Clear();
                 double balance = 1000;
                 double withdraw, deposit;
-                Console.WriteLine("Chose what process you want \n1. withdraw  \n2. deposit  \n3. chechBalance  \n4. Exit ");
-                int choice1 = int.Parse(Console.ReadLine());
+                
                 //bool isActive = false;
                 switch (choice1)
                 {
                     case 1:
                         if (balance == 0)
                         {
-                            Console.WriteLine("\nYour balance is : " + balance + " You cant withdraw");
+                            return "\nYour balance is : " + balance + " You cant withdraw";
 
 
                         }
@@ -422,13 +383,13 @@
                             withdraw = double.Parse(Console.ReadLine());
                             if (withdraw > balance)
                             {
-                                Console.WriteLine("Insufficient funds!");
+                                return "Insufficient funds!";
 
                             }
                             else
                             {
                                 balance = balance - withdraw;
-                                Console.WriteLine("Withdrawal successful! New balance: " + balance);
+                                return "Withdrawal successful! New balance: " + balance;
 
                             }
 
@@ -439,15 +400,14 @@
                         Console.WriteLine("\nEnter amount to deposit : ");
                         deposit = double.Parse(Console.ReadLine());
                         balance = balance + deposit;
-                        Console.WriteLine("Deposit successful! New balance: " + balance);
+                        return "Deposit successful! New balance: " + balance;
                         break;
                     case 3:
-                        Console.WriteLine("Your balance: " + balance);
+                        return "Your balance: " + balance;
                         break;
-                    case 4:
-                        return;
+                    
                     default:
-                        Console.WriteLine("\nInvalid choice");
+                        return "\nInvalid choice";
                         break;
                 }
 
