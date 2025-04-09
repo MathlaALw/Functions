@@ -80,7 +80,14 @@
                         int result5 = GradingSystem(marks);
                         printValue(result5.ToString());
                         break;
-                    case 6: SwapTwoNumbers(); break;
+                    case 6:
+                        Console.WriteLine("Enter number 1 : ");
+                        int number1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter number 2 : ");
+                        int number2 = int.Parse(Console.ReadLine());
+                        string result6 = SwapTwoNumbers(number1,number2);
+                        printValue(result6);
+                        break;
                     case 7: DaysToWeeksAndDaysConverter(); break;
                     case 8: ElectricityBillCalculator(); break;
                     case 9: SimpleCalculatorpart1(); break;
@@ -214,21 +221,24 @@
             }
             return grade;
         }
-        public static void SwapTwoNumbers()
+        public static string SwapTwoNumbers(int number1, int number2 )
         {
             //6. Swap Two Numbers
 
-            int number1, number2;
-            Console.WriteLine("Enter number 1 : ");
-            number1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter number 2 : ");
-            number2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Before Swapping : Number 1= " + number1 + " Number 2 = " + number2);
+            
+            
+            
             //Swapping
-            number1 = number1 * number2;
-            number2 = number1 / number2;
-            number1 = number1 / number2;
-            Console.WriteLine("After Swapping : Number 1 " + number1 + " Number 2 = " + number2);
+           
+            int first = number1;
+            int second = number2;
+            
+
+            string result = second+ " - " + first;
+           
+
+            return result;
+            
         }
         public static void DaysToWeeksAndDaysConverter()
         {
