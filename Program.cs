@@ -94,7 +94,12 @@
                         string result7 = DaysToWeeksAndDaysConverter(days);
                         printValue(result7);
                         break;
-                    case 8: ElectricityBillCalculator(); break;
+                    case 8:
+                        Console.WriteLine("Enter number of units : ");
+                        float unitNumber = float.Parse(Console.ReadLine());
+                        float result8 = ElectricityBillCalculator(unitNumber);
+                        printValue(result8.ToString());
+                        break;
                     case 9: SimpleCalculatorpart1(); break;
                     case 10: SimpleCalculator(); break;
                     case 11: BasicATM(); break;
@@ -256,27 +261,27 @@
 
         }
 
-        public static void ElectricityBillCalculator()
+        public static float ElectricityBillCalculator(float unitNumber)
         {
             //8. Electricity Bill Calculator
 
-            float unitNumber, bill;
-            Console.WriteLine("Enter number of units : ");
-            unitNumber = float.Parse(Console.ReadLine());
+            float bill;
+            
             if (unitNumber <= 100)
             {
                 bill = unitNumber * 0.5f;
-                Console.WriteLine("The bill is : " + bill);
+                
+                return bill;
             }
             else if (unitNumber > 100 && unitNumber <= 300)
             {
                 bill = unitNumber * 0.75f;
-                Console.WriteLine("The bill is : " + bill);
+                return bill;
             }
             else
             {
                 bill = unitNumber * 1.0f;
-                Console.WriteLine("The bill is : " + bill);
+                return bill;
             }
         }
 
