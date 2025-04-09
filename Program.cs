@@ -126,8 +126,14 @@ namespace Functions
                         break;
 
 
-                    case 12:  break;
-                    case 13: Factorial(); break;
+                    case 12:
+                        Console.WriteLine("Enter a number to find the factorial : ");
+                        int factorialnumber = int.Parse(Console.ReadLine());
+                        string result12 = Factorial(factorialnumber);
+                        printValue(result12.ToString());
+
+                        break;
+                    case 13:  break;
                     case 14: SumEvenOdd(); break;
                     case 15: ScientificCalculator(); break;
                     case 16: PrintTriangle(); break;
@@ -490,17 +496,16 @@ namespace Functions
         //---------------------------------------------------------------------------
 
         //4.Factorial of a Number
-        static void Factorial()
+        public static string Factorial(int factorialnumber)
         {
-            int factorialnumber;
-            Console.WriteLine("Enter a number to find the factorial : ");
-            factorialnumber = int.Parse(Console.ReadLine());
+            
+           
             int fact = 1;
             for (int i = 1; i <= factorialnumber; i++)
             {
                 fact = fact * i;
             }
-            Console.WriteLine("The factorial of " + factorialnumber + " is : " + fact);
+            return "The factorial of " + factorialnumber + " is : " + fact;
 
         }
         //Console.WriteLine(" -------------------------------------------------------");
@@ -510,7 +515,7 @@ namespace Functions
 
 
         //5. Sum of Even and Odd Numbers 
-        static void SumEvenOdd()
+        public static void SumEvenOdd()
         {
             int sumeven = 0;
             int sumodd = 0;
@@ -539,7 +544,7 @@ namespace Functions
 
         //6. Scientific Calculator (Switch-Case & Math Functions)
 
-        static void ScientificCalculator()
+        public static void ScientificCalculator()
         {
             char userChoice;
             Console.WriteLine("Choose a function : sin , cos , tan , sqrt , log , pow ( s , c , t , q , l , p )");
@@ -578,7 +583,7 @@ namespace Functions
 
         //---------------------------------------------------------------------------
         // 7. Print Triangle Pattern
-        static void PrintTriangle()
+        public static void PrintTriangle()
         {
             Console.Write("Enter N: ");
             int n = int.Parse(Console.ReadLine());
@@ -590,7 +595,7 @@ namespace Functions
 
 
         //8. Print a Pyramid Pattern (For Loop)
-        static void PrintPyramid()
+        public static void PrintPyramid()
         {
             int number;
             Console.WriteLine("Enter a number : ");
@@ -612,7 +617,7 @@ namespace Functions
 
         //---------------------------------------------------------------------------
         //9. Print a Diamond Pattern (For Loop)
-        static void PrintDiamond()
+        public static void PrintDiamond()
         {
 
             int number;
@@ -648,7 +653,7 @@ namespace Functions
         //---------------------------------------------------------------------------
 
         //10.Guess Game with helper with while loop
-        static void GuessGame()
+        public static void GuessGame()
         {
             Random random = new Random();
             int randomNumber = random.Next(1, 100);
