@@ -118,11 +118,15 @@ namespace Functions
                         printValue(result10);
                         break;
                     case 11:
-                       
+                        Console.WriteLine("Choose a shape: Circle , Square or Triangle ( c , s or t )");
+                        string choiceshape = Console.ReadLine();
+                        string result11 = GeometryCalculator(choiceshape);
+                        printValue(result11);
+
                         break;
 
 
-                    case 12: GeometryCalculator(); break;
+                    case 12:  break;
                     case 13: Factorial(); break;
                     case 14: SumEvenOdd(); break;
                     case 15: ScientificCalculator(); break;
@@ -429,17 +433,16 @@ namespace Functions
 
 
         //3. Geometry Calculator
-        static void GeometryCalculator()
+        public static string GeometryCalculator(string choiceshape)
         {
             char doingAgain;
             do
             {
                 Console.Clear();
-                string choiceshape;
+                
                 double area = 0;
                 double pi = 3.14159;
-                Console.WriteLine("Choose a shape: Circle , Square or Triangle ( c , s or t )");
-                choiceshape = Console.ReadLine();
+                
                 switch (choiceshape)
                 {
                     case "c":
@@ -448,8 +451,8 @@ namespace Functions
                         radius = double.Parse(Console.ReadLine());
                         area = pi * radius * radius;
                         circumference = 2 * pi * radius;
-                        Console.WriteLine("The area of the circle is: " + area);
-                        Console.WriteLine("The circumference of the circle is: " + circumference);
+                        return "The area of the circle is: " + area;
+                        return "The circumference of the circle is: " + circumference;
                         break;
                     case "s":
                         double side, perimeter;
@@ -457,8 +460,8 @@ namespace Functions
                         side = double.Parse(Console.ReadLine());
                         area = side * side;
                         perimeter = 4 * side;
-                        Console.WriteLine("The area of the square is: " + area);
-                        Console.WriteLine("The perimeter of the square is: " + perimeter);
+                        return "The area of the square is: " + area;
+                        return "The perimeter of the square is: " + perimeter;
 
                         break;
                     case "t":
@@ -469,10 +472,10 @@ namespace Functions
                         Console.WriteLine("Enter the height of the triangle: ");
                         heighttriangle = double.Parse(Console.ReadLine());
                         area = (basetriangle * heighttriangle) / 2;
-                        Console.WriteLine("The area of the triangle is: " + area);
+                        return "The area of the triangle is: " + area;
                         break;
                     default:
-                        Console.WriteLine("Invalid choice");
+                        return "Invalid choice";
                         break;
                 }
                 Console.WriteLine("Do you want to do another calculation? (y/n)");
